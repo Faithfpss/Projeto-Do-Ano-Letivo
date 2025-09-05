@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação - Mecha do Amor</title>
+    <meta name="description" content="Doe cabelo ou faça uma doação financeira para ajudar pessoas em tratamento contra o câncer.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn-primary {
+            background: #ec407a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d81b60;
+            transform: translateY(-2px);
+        }
+        .donation-option {
+            border: 2px solid #f8bbd0;
+            transition: all 0.3s ease;
+        }
+        .donation-option:hover, .donation-option.selected {
+            border-color: #ec407a;
+            background-color: #fce4ec;
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-极 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-pink-600">Mecha do Amor</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600">Início</a>
+                <a href="produtos.html" class="text-gray-600 hover:text-pink-600">Produtos</a>
+                <a href="doacao.html" class="text-pink-600 font-semibold">Doação</a>
+                <a href="sobre.html" class="text-gray-600 hover:text-pink-极">Sobre</a>
+                <a href="contato.html" class="text-gray-600 hover:text-pink-600">Contato</a>
+                <a href="carrinho.html" class="text-gray-600 hover:text-pink-600 flex items-center">
+                    <i data-feather="shopping-cart" class="mr-1"></i>
+                    <span id="cart-count" class="bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button class="md:hidden text-pink-600">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Donation Section -->
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Faça uma Doação</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Hair Donation -->
+            <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-right">
+                <div class="text-center mb-8">
+                    <i data-feather="scissors" class="w-16 h-16 text-pink-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-semibold text-gray-800">Doação de Cabelo</h2>
+                    <p class="text-gray-600 mt-2">Seu cabelo pode fazer a diferença na vida de alguém.</p>
+                </div>
+                
+                <form id="hair-donation-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="name">Nome Completo</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="email">E-mail</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="phone">Telefone</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="hair-length">Comprimento do Cabelo (cm)</label>
+                        <input type="number" id="hair-length" min="15" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="hair-type">Tipo de Cabelo</label>
+                        <select id="hair-type" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                            <option value="">Selecione</option>
+                            <option value="liso">Liso</option>
+                            <option value="ondulado">Ondulado</option>
+                            <option value="cacheado">Cacheado</option>
+                            <option value="crespo">Crespo</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="hair-color">Cor do Cabelo</label>
+                        <select id="hair-color" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                            <option value="">Selecione</option>
+                            <option value="loiro">Loiro</option>
+                            <option value="castanho">Castanho</option>
+                            <option value="preto">Preto</option>
+                            <option value="ruivo">Ruivo</option>
+                            <option value="grisalho">Grisalho</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-pink-600" required>
+                            <span class="ml-2 text-gray-700">Declaro que meu cabelo não foi submetido a processos químicos recentes (coloração, alisamento, etc.)</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg w-full font-semibold">Enviar Doação</button>
+                </form>
+            </div>
+
+            <!-- Financial Donation -->
+            <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-left">
+                <div class="text-center mb-8">
+                    <i data-feather="heart" class="w-16 h-16 text-pink-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-semibold text-gray-800">Doação Financeira</h2>
+                    <p class="text-gray-600 mt-2">Sua contribuição ajuda a manter nosso trabalho.</p>
+                </div>
+                
+                <form id="financial-donation-form">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Selecione o valor</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="donation-option p-4 rounded-lg text-center cursor-pointer" data-value="25">
+                                <span class="text-xl font-semibold">R$ 25</span>
+                            </div>
+                            <div class="donation-option p-4 rounded-lg text-center cursor-pointer" data-value="50">
+                                <span class="text-xl font-semibold">R$ 50</span>
+                            </div>
+                            <div class="donation-option p-4 rounded-lg text-center cursor-pointer" data-value="100">
+                                <span class="text-xl font-semibold">R$ 100</span>
+                            </div>
+                            <div class="donation-option p-4 rounded-lg text-center cursor-pointer" data-value="custom">
+                                <span class="text-xl font-semibold">Outro</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 hidden" id="custom-amount">
+                        <label class="block text-gray-700 mb-2" for="amount">Valor Personalizado (R$)</label>
+                        <input type="number" id="amount" min="1" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="donor-name">Nome Completo</label>
+                        <input type="text" id="donor-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="donor-email">E-mail</label>
+                        <input type="email" id="donor-email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="donor-cpf">CPF</label>
+                        <input type="text" id="donor-cpf" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg w-full font-semibold">Doar Agora</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Impact Information -->
+        <div class="mt-16 bg-pink-100 rounded-lg p-8 text-center" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Como Sua Doação Ajuda</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <i data-feather="award" class="w-12 h-12 text-pink-600 mx-auto mb-4"></i>
+                    <h3 class="font-semibold text-gray-800 mb-2">1 Peruca</h3>
+                    <p class="text-gray-600">R$ 300 cobre o custo de produção de uma peruca</p>
+                </div>
+                <div>
+                    <i data-feather="users" class="w-12 h-12 text-pink-600 mx-auto mb-4"></i>
+                    <h3 class="font-semibold text-gray-800 mb-2">5 Workshops</h3>
+                    <p class="text-gray-600">R$ 1000 financia workshops de autoestima</p>
+                </div>
+                <div>
+                    <i data-feather="truck" class="w-12 h-12 text-pink-600 mx-auto mb-4"></i>
+                    <h3 class="font-semibold text-gray-800 mb-2">Distribuição</h3>
+                    <p class="text-gray-600">R$ 50 ajuda no transporte para comunidades carentes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3极="text-xl font-bold mb-4">Mecha do Amor</h3>
+                    <p class="text-gray-400">Doe cabelo, mude vidas. Juntos podemos fazer a diferença.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="doacao.html" class="text-gray-400 hover:text-white">Doação</a></极>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="contato.html" class="极gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span class="text-gray-400">contato@mechadoamor.org</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span class="text-gray-400">(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            <span class="text-gray-400">São Paulo, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <极 class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Mecha do Amor. Todos os direitos reservados. <a href="#" class="hover:text-white">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            feather.replace();
+            
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+            updateCartCount();
+
+            // Financial donation options
+            const donationOptions = document.querySelectorAll('.donation-option');
+            const customAmountField = document.getElementById('custom-amount');
+            
+            donationOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    donationOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    if (this.dataset.value === 'custom') {
+                        customAmountField.classList.remove('hidden');
+                    } else {
+                        customAmountField.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Form submissions
+            document.getElementById('hair-donation-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Obrigado por sua doação de cabelo! Entraremos em contato em breve com instruções.');
+                this.reset();
+            });
+
+            document.getElementById('financial-donation-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Redirecionando para processamento de pagamento...');
+                // Here would be the integration with payment gateway
+            });
+        });
+    </script>
+</body>
+</html>

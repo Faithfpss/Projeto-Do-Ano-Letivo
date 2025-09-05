@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Mecha do Amor</title>
+    <meta name="description" content="Finalize sua compra de perucas naturais da Mecha do Amor.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn-primary {
+            background: #ec407a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d81b60;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-pink-600">Mecha do Amor</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600">Início</a>
+                <a href="produtos.html" class="text-gray-600 hover:text-pink-600">Produtos</a>
+                <a href="doacao.html" class="text-gray-600 hover:text-pink-600">Doação</a>
+                <a href="sobre.html" class="text-gray-600 hover:text-pink-600">Sobre</a>
+                <a href="contato.html" class="text-gray-600 hover:text-pink-600">Contato</a>
+                <a href="carrinho.html" class="text-pink-600 font-semibold flex items-center">
+                    <i data-feather="shopping-cart" class="mr-1"></i>
+                    <span id="cart-count" class="bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button class="md:hidden text-pink-600">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Seu Carrinho</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2">
+                <div id="cart-items" class="bg-white rounded-lg shadow-md p-6">
+                    <!-- Cart items will be loaded dynamically -->
+                    <div class="text-center py-12">
+                        <i data-feather="shopping-cart" class="w-16 h-16 text-gray-300 mx-auto mb-4"></i>
+                        <p class="text-gray-500">Seu carrinho está vazio</p>
+                        <a href="produtos.html" class="btn-primary text-white px-6 py-3 rounded-lg inline-block mt-4">Continuar Comprando</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div>
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Resumo do Pedido</h2>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Frete</span>
+                            <span id="shipping">R$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between font-semibold text-lg pt-2 border-t">
+                            <span>Total</span>
+                            <span id="total">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Calculator -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="cep">Calcular Frete</label>
+                        <div class="flex">
+                            <input type="text" id="cep" placeholder="00000-000" class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-600">
+                            <button id="calculate-shipping" class="bg-pink-600 text-white px-4 py-2 rounded-r-lg">Calcular</button>
+                        </div>
+                    </div>
+
+                    <!-- Coupon -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="coupon">Cupom de Desconto</label>
+                        <div class="flex">
+                            <input type="text" id="coupon" class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-600">
+                            <button id="apply-coupon" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-r-lg">Aplicar</button>
+                        </div>
+                    </div>
+
+                    <button id="checkout-btn" class="btn-primary text-white px-6 py-3 rounded-lg w-full font-semibold" disabled>Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mecha do Amor</h3>
+                    <p class="text-gray-400">Doe cabelo, mude vidas. Juntos podemos fazer a diferença.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="doacao.html" class="text-gray-400 hover:text-white">Doação</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span class="text-gray-400">contato@mechadoamor.org</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span class="text-gray-400">(11) 98980-1824</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            <span class="text-gray-400">São Paulo, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Mecha do Amor. Todos os direitos reservados. <a href="#" class="hover:text-white">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            feather.replace();
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let shipping = 0;
+            let discount = 0;
+
+            // Update cart count
+            function updateCartCount() {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                const cartContainer = document.getElementById('cart-items');
+                const subtotalElement = document.getElementById('subtotal');
+                const shippingElement = document.getElementById('shipping');
+                const totalElement = document.getElementById('total');
+                const checkoutBtn = document.getElementById('checkout-btn');
+                
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = `
+                        <div class="text-center py-12">
+                            <i data-feather="shopping-cart" class="w-16 h-16 text-gray-300 mx-auto mb-4"></i>
+                            <p class="text-gray-500">Seu carrinho está vazio</p>
+                            <a href="produtos.html" class="btn-primary text-white px-6 py-3 rounded-lg inline-block mt-4">Continuar Comprando</a>
+                        </div>
+                    `;
+                    feather.replace();
+                    subtotalElement.textContent = 'R$ 0,00';
+                    shippingElement.textContent = 'R$ 0,00';
+                    totalElement.textContent = 'R$ 0,00';
+                    checkoutBtn.disabled = true;
+                    return;
+                }
+
+                let subtotal = 0;
+                let cartHTML = '';
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    // Use a imagem do item ou uma imagem padrão como fallback
+                    const imageUrl = item.image || '/static/default-product.jpg';
+                    
+                    cartHTML += `
+                        <div class="flex items-center border-b pb-4 mb-4" data-id="${item.id}">
+                            <img src="${imageUrl}" alt="${item.name}" class="w-16 h-16 object-cover rounded">
+                            <div class="ml-4 flex-grow">
+                                <h3 class="font-semibold">${item.name}</h3>
+                                <p class="text-gray-600">R$ ${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="decrease-quantity bg-gray-200 rounded-l px-2 py-1">-</button>
+                                <span class="quantity mx-2 px-2 py-1">${item.quantity}</span>
+                                <button class="increase-quantity bg-gray-200 rounded-r px-2 py-1">+</button>
+                            </div>
+                            <div class="ml-4">
+                                <span class="font-semibold">R$ ${itemTotal.toFixed(2)}</span>
+                            </div>
+                            <button class="remove-item ml-4 text-red-600">
+                                <i data-feather="trash-2"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                cartContainer.innerHTML = cartHTML;
+                feather.replace();
+
+                const total = subtotal + shipping - discount;
+                subtotalElement.textContent = `R$ ${subtotal.toFixed(2)}`;
+                shippingElement.textContent = `R$ ${shipping.toFixed(2)}`;
+                totalElement.textContent = `R$ ${total.toFixed(2)}`;
+                checkoutBtn.disabled = total <= 0;
+
+                // Add event listeners
+                document.querySelectorAll('.increase-quantity').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemElement = this.closest('[data-id]');
+                        const itemId = itemElement.dataset.id;
+                        const item = cart.find(item => item.id === itemId);
+                        item.quantity += 1;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+
+                document.querySelectorAll('.decrease-quantity').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemElement = this.closest('[data-id]');
+                        const itemId = itemElement.dataset.id;
+                        const item = cart.find(item => item.id === itemId);
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(item => item.id !== itemId);
+                        }
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemElement = this.closest('[data-id]');
+                        const itemId = itemElement.dataset.id;
+                        cart = cart.filter(item => item.id !== itemId);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+            }
+
+            // Calculate shipping
+            document.getElementById('calculate-shipping').addEventListener('click', function() {
+                const cep = document.getElementById('cep').value;
+                if (cep.length === 8) {
+                    // Simulate API call to Correios
+                    shipping = 15.90;
+                    updateCartDisplay();
+                    alert('Frete calculado com sucesso!');
+                } else {
+                    alert('Por favor, insira um CEP válido.');
+                }
+            });
+
+            // Apply coupon
+            document.getElementById('apply-coupon').addEventListener('click', function() {
+                const coupon = document.getElementById('coupon').value.toUpperCase();
+                if (coupon === 'DOACAO') {
+                    discount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                    shipping = 0;
+                    updateCartDisplay();
+                    alert('Cupom aplicado com sucesso! 100% de desconto, incluindo frete.');
+                } else if (coupon === 'AMOR20') {
+                    discount = cart.reduce((total, item) => total + (item.price * item.quantity), 0) * 0.2;
+                    updateCartDisplay();
+                    alert('Cupom aplicado com sucesso! 20% de desconto.');
+                } else {
+                    alert('Cupom inválido.');
+                }
+            });
+
+            // Checkout
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                alert('Redirecionando para o gateway de pagamento...');
+                // Here would be the integration with Mercado Pago or PayPal
+            });
+
+            updateCartCount();
+            updateCartDisplay();
+        });
+    </script>
+</body>
+</html>
