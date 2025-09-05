@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Mecha do Amor</title>
+    <meta name="description" content="Entre em contato com a Mecha do Amor para doações, parcerias ou outras informações.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn-primary {
+            background: #ec407a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d81b60;
+            transform: translateY(-2px);
+        }
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .md\:flex {
+            display: none;
+        }
+        .md\:flex:not(.hidden) {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-pink-600">Mecha do Amor</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600">Início</a>
+                <a href="produtos.html" class="text-gray-600 hover:text-pink-600">Produtos</a>
+                <a href="doacao.html" class="text-gray-600 hover:text-pink-600">Doação</a>
+                <a href="sobre.html" class="text-gray-600 hover:text-pink-600">Sobre</a>
+                <a href="contato.html" class="text-pink-600 font-semibold">Contato</a>
+                <a href="carrinho.html" class="text-gray-600 hover:text-pink-600 flex items-center">
+                    <i data-feather="shopping-cart" class="mr-1" aria-label="Carrinho de compras"></i>
+                    <span id="cart-count" class="bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button class="md:hidden text-pink-600" aria-label="Menu">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Entre em Contato</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-right">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Envie uma Mensagem</h2>
+                
+                <form action="https://formspree.io/f/mvojnqkj" method="POST" id="contact-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="contact-name">Nome Completo</label>
+                        <input type="text" id="contact-name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="contact-email">E-mail</label>
+                        <input type="email" id="contact-email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="contact-phone">Telefone</label>
+                        <input type="tel" id="contact-phone" name="phone" pattern="[0-9]{10,11}" placeholder="(11) 99999-9999" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="contact-subject">Assunto</label>
+                        <select id="contact-subject" name="subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required>
+                            <option value="">Selecione</option>
+                            <option value="doacao">Doação de Cabelo</option>
+                            <option value="financeiro">Doação Financeira</option>
+                            <option value="parceria">Parceria</option>
+                            <option value="voluntariado">Voluntariado</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="contact-message">Mensagem</label>
+                        <textarea id="contact-message" name="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg w-full font-semibold">Enviar Mensagem</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div data-aos="fade-left">
+                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Informações de Contato</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="w-6 h-6 text-pink-600 mr-4" aria-label="E-mail"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">E-mail</h3>
+                                <p class="text-gray-600">contato@mechadoamor.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="w-6 h-6 text-pink-600 mr-4" aria-label="Telefone"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Telefone</h3>
+                                <p class="text-gray-600">(11) 98980-1824</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="w-6 h-6 text-pink-600 mr-4" aria-label="Endereço"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Endereço</h3>
+                                <p class="text-gray-600">Rua Tito, 54<br>São Paulo - SP<br>01234-567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="clock" class="w-6 h-6 text-pink-600 mr-4" aria-label="Horário"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Horário de Funcionamento</h3>
+                                <p class="text-gray-600">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Redes Sociais</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://facebook.com/mechadoamor" class="flex items-center justify-center p-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            <i data-feather="facebook" class="mr-2" aria-label="Facebook"></i>
+                            Facebook
+                        </a>
+                        <a href="https://instagram.com/mechadoamor" class="flex items-center justify-center p-4 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition">
+                            <i data-feather="instagram" class="mr-2" aria-label="Instagram"></i>
+                            Instagram
+                        </a>
+                        <a href="https://twitter.com/mechadoamor" class="flex items-center justify-center p-4 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition">
+                            <i data-feather="twitter" class="mr-2" aria-label="Twitter"></i>
+                            Twitter
+                        </a>
+                        <a href="https://youtube.com/mechadoamor" class="flex items-center justify-center p-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                            <i data-feather="youtube" class="mr-2" aria-label="YouTube"></i>
+                            YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 bg-white p-8 rounded-lg shadow-md" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Onde Estamos</h2>
+    <div class="aspect-w-16 aspect-h-9">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0537482315053!2d-46.69974288494917!3d-23.528399584693744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57a6217c050f%3A0x7d06e2e4b4d7547!2sSenac%20Lapa%20Tito!5e0!3m2!1spt-BR!2sbr!4v1668524671408!5m2!1spt-BR!2sbr"
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            class="rounded-lg">
+        </iframe>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mecha do Amor</h3>
+                    <p class="text-gray-400">Doe cabelo, mude vidas. Juntos podemos fazer a diferença.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="doacao.html" class="text-gray-400 hover:text-white">Doação</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2" aria-label="E-mail"></i>
+                            <span class="text-gray-400">contato@mechadoamor.org</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2" aria-label="Telefone"></i>
+                            <span class="text-gray-400">(11) 98980-1824</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2" aria-label="Endereço"></i>
+                            <span class="text-gray-400">São Paulo, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" aria-label="Facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" aria-label="Instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter" aria-label="Twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube" aria-label="YouTube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Mecha do Amor. Todos os direitos reservados. <a href="#" class="hover:text-white">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            feather.replace();
+            
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+            updateCartCount();
+
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.md\\:hidden');
+            const navLinks = document.querySelector('.md\\:flex');
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+            });
+
+            // Active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('nav a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('text-pink-600', 'font-semibold');
+                }
+            });
+
+            // Contact form submission
+            document.getElementById('contact-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const button = this.querySelector('button');
+                button.disabled = true;
+                button.textContent = 'Enviando...';
+                try {
+                    const response = await fetch(this.action, {
+                        method: this.method,
+                        body: new FormData(this),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                        this.reset();
+                    } else {
+                        alert('Erro ao enviar a mensagem. Tente novamente.');
+                    }
+                } catch (error) {
+                    alert('Erro de conexão. Verifique sua internet e tente novamente.');
+                } finally {
+                    button.disabled = false;
+                    button.textContent = 'Enviar Mensagem';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

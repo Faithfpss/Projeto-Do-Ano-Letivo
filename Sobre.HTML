@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Mecha do Amor</title>
+    <meta name="description" content="Conheça a história, missão e impacto da campanha Mecha do Amor.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn-primary {
+            background: #ec407a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d81b60;
+            transform: translateY(-2px);
+        }
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .md\:flex {
+            display: none;
+        }
+        .md\:flex:not(.hidden) {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-pink-600">Mecha do Amor</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600">Início</a>
+                <a href="produtos.html" class="text-gray-600 hover:text-pink-600">Produtos</a>
+                <a href="doacao.html" class="text-gray-600 hover:text-pink-600">Doação</a>
+                <a href="sobre.html" class="text-pink-600 font-semibold">Sobre</a>
+                <a href="contato.html" class="text-gray-600 hover:text-pink-600">Contato</a>
+                <a href="carrinho.html" class="text-gray-600 hover:text-pink-600 flex items-center">
+                    <i data-feather="shopping-cart" class="mr-1" aria-label="Carrinho de compras"></i>
+                    <span id="cart-count" class="bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button class="md:hidden text-pink-600" aria-label="Menu">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Sobre a Mecha do Amor</h1>
+        
+        <!-- Mission -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div data-aos="fade-right">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Nossa Missão</h2>
+                <p class="text-gray-600 mb-4">A Mecha do Amor nasceu da vontade de devolver a autoestima e confiança de pessoas em tratamento contra o câncer. Acreditamos que cada fio de cabelo doado representa um gesto de amor e solidariedade.</p>
+                <p class="text-gray-600">Nossa missão é transformar doações de cabelo em perucas 100% naturais e distribuí-las gratuitamente para pacientes oncológicos em todo o Brasil, além de promover workshops de autoestima e cuidados durante o tratamento.</p>
+            </div>
+            <div data-aos="fade-left">
+                <img src="/static/images/mission.jpg" alt="Equipe Mecha do Amor" class="rounded-lg shadow-xl">
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div data-aos="fade-right">
+                <img src="/static/images/founder.jpg" alt="Fundadora Mecha do Amor" class="rounded-lg shadow-xl">
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Nossa História</h2>
+                <p class="text-gray-600 mb-4">Tudo começou em 2015 quando nossa fundadora, Ana Souza, viu sua mãe passar pelo tratamento de câncer e perder os cabelos. Ana decidiu doar seu próprio cabelo, mas percebeu que muitas pessoas queriam ajudar mas não sabiam como.</p>
+                <p class="text-gray-600">Assim nasceu a Mecha do Amor, que começou pequena, em uma garagem, e hoje conta com uma equipe de 30 voluntários e já doou mais de 1.200 perucas em 15 cidades diferentes.</p>
+            </div>
+        </div>
+
+        <!-- Impact -->
+        <div class="bg-pink-100 rounded-lg p-8 mb-16" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">Nosso Impacto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold text-pink-600 mb-2">1.200+</div>
+                    <p class="text-gray-600">Perucas doadas</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-pink-600 mb-2">50+</div>
+                    <p class="text-gray-600">Workshops realizados</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-pink-600 mb-2">15</div>
+                    <p class="text-gray-600">Cidades atendidas</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="mb-16" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">Nossos Parceiros</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="/static/images/partner1.jpg" alt="Parceiro 1" class="h-12">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="/static/images/partner2.jpg" alt="Parceiro 2" class="h-12">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="/static/images/partner3.jpg" alt="Parceiro 3" class="h-12">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="/static/images/partner4.jpg" alt="Parceiro 4" class="h-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div data-aos="fade-up">
+            <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">Galeria de Eventos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <img src="/static/images/event1.jpg" alt="Evento 1" class="rounded-lg shadow-md">
+                <img src="/static/images/event2.jpg" alt="Evento 2" class="rounded-lg shadow-md">
+                <img src="/static/images/event3.jpg" alt="Evento 3" class="rounded-lg shadow-md">
+                <img src="/static/images/event4.jpg" alt="Evento 4" class="rounded-lg shadow-md">
+                <img src="/static/images/event5.jpg" alt="Evento 5" class="rounded-lg shadow-md">
+                <img src="/static/images/event6.jpg" alt="Evento 6" class="rounded-lg shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-pink-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Junte-se à Nossa Causa</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Sua contribuição, seja doando cabelo ou fazendo uma doação financeira, faz toda a diferença.</p>
+            <a href="doacao.html" class="bg-white text-pink-600 px-8 py-4 rounded-lg shadow-lg font-semibold inline-block">Fazer Doação Agora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mecha do Amor</h3>
+                    <p class="text-gray-400">Doe cabelo, mude vidas. Juntos podemos fazer a diferença.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="doacao.html" class="text-gray-400 hover:text-white">Doação</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2" aria-label="E-mail"></i>
+                            <span class="text-gray-400">contato@mechadoamor.org</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2" aria-label="Telefone"></i>
+                            <span class="text-gray-400">(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2" aria-label="Endereço"></i>
+                            <span class="text-gray-400">São Paulo, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" aria-label="Facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" aria-label="Instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter" aria-label="Twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/mechadoamor" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube" aria-label="YouTube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Mecha do Amor. Todos os direitos reservados. <a href="#" class="hover:text-white">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            feather.replace();
+            
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+            updateCartCount();
+
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.md\\:hidden');
+            const navLinks = document.querySelector('.md\\:flex');
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+            });
+
+            // Active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('nav a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('text-pink-600', 'font-semibold');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

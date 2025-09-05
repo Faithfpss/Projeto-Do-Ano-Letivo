@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perucas - Mecha do Amor</title>
+    <meta name="description" content="Perucas 100% naturais para pessoas em tratamento contra o câncer. Estilos variados e preços acessíveis.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn-primary {
+            background: #ec407a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d81b60;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-pink-600">Mecha do Amor</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600">Início</a>
+                <a href="produtos.html" class="text-pink-600 font-semibold">Produtos</a>
+                <a href="doacao.html" class="text-gray-600 hover:text-pink-600">Doação</a>
+                <a href="sobre.html" class="text-gray-600 hover:text-pink-600">Sobre</a>
+                <a href="contato.html" class="text-gray-600 hover:text-pink-600">Contato</a>
+                <a href="carrinho.html" class="text-gray-600 hover:text-pink-600 flex items-center">
+                    <i data-feather="shopping-cart" class="mr-1"></i>
+                    <span id="cart-count" class="bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button class="md:hidden text-pink-600">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Products Section -->
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Nossas Perucas</h1>
+        
+        <!-- Filters and View Options -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 bg-white p-4 rounded-lg shadow-md">
+            <div class="mb-4 md:mb-0">
+                <span class="font-semibold mr-2">Filtrar por:</span>
+                <select class="border rounded p-2">
+                    <option>Todos os estilos</option>
+                    <option>Longo</option>
+                    <option>Médio</option>
+                    <option>Curto</option>
+                </select>
+                <select class="border rounded p-2 ml-2">
+                    <option>Todas as cores</option>
+                    <option>Loiro</option>
+                    <option>Castanho</option>
+                    <option>Preto</option>
+                    <option>Ruivo</option>
+                </select>
+            </div>
+            <div class="flex items-center">
+                <span class="font-semibold mr-2">Visualização:</span>
+                <button class="p-2 rounded-lg bg-pink-100 text-pink-600 ml-2">
+                    <i data-feather="grid"></i>
+                </button>
+                <button class="p-2 rounded-lg bg-white text-gray-600 ml-2">
+                    <i data-feather="list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <img src="https://plus.unsplash.com/premium_photo-1722859267067-0e8e597b7b75?q=80&w=958&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peruca longa loira" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Longa Loiro Natural</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 50cm, ideal para uso diário.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 299.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="1" data-name="Peruca Longa Loiro Natural" data-price="299.90" data-image="https://plus.unsplash.com/premium_photo-1722859267067-0e8e597b7b75?q=80&w=958&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1579036788571-f23b1318789e?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peruca média castanha" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Média Castanho</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 35cm, fácil de manter.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 249.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="2" data-name="Peruca Média Castanho" data-price="249.90" data-image="https://images.unsplash.com/photo-1579036788571-f23b1318789e?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://plus.unsplash.com/premium_photo-1723701850618-ef6370251b18?q=80&w=978&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peruca curta preta" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Curta Preta</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 25cm, estilo moderno.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 199.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="3" data-name="Peruca Curta Preta" data-price="199.90" data-image="https://plus.unsplash.com/premium_photo-1723701850618-ef6370251b18?q=80&w=978&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1630949018486-5582dd02684d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peruca longa ruiva" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Longa Ruivo</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 50cm, cor vibrante.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 319.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="4" data-name="Peruca Longa Ruivo" data-price="319.90" data-image="https://images.unsplash.com/photo-1630949018486-5582dd02684d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_807788-MLB82453517202_022025-F-lace-peruca-media-orgnica-ondulada.webp" alt="Peruca média com ondulação" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Média Ondulada</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 35cm, ondulação natural.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 269.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="5" data-name="Peruca Média Ondulada" data-price="269.90" data-image="https://http2.mlstatic.com/D_NQ_NP_2X_807788-MLB82453517202_022025-F-lace-peruca-media-orgnica-ondulada.webp">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1630695300380-712176e33bbc?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peruca curta loira" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Peruca Curta Loiro</h3>
+                    <p class="text-gray-600 mb-4">Cabelo 100% natural, comprimento 25cm, estilo jovial.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">R$ 219.90</span>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg flex items-center add-to-cart" data-id="6" data-name="Peruca Curta Loiro" data-price="219.90" data-image="https://images.unsplash.com/photo-1630695300380-712176e33bbc?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <i data-feather="shopping-cart" class="mr-2"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mecha do Amor</h3>
+                    <p class="text-gray-400">Doe cabelo, mude vidas. Juntos podemos fazer a diferença.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="doacao.html" class="text-gray-400 hover:text-white">Doação</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span class="text-gray-400">contato@mechadoamor.org</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span class="text-gray-400">(11) 98980-1824</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            <span class="text-gray-400">São Paulo, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Mecha do Amor. Todos os direitos reservados. <a href="#" class="hover:text-white">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+            feather.replace();
+            
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+            updateCartCount();
+
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseFloat(this.dataset.price);
+                    const image = this.dataset.image; // Get the image URL from data-image
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({ id, name, price, quantity: 1, image });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    
+                    // Show confirmation
+                    alert(`${name} adicionado ao carrinho!`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
